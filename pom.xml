@@ -28,6 +28,16 @@
             <artifactId>h2</artifactId>
             <version>1.4.187</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
 
         <dependency>
             <groupId>org.spockframework</groupId>
@@ -64,7 +74,7 @@
                 </executions>
                 <configuration>
                     <jdbcDriver>org.h2.Driver</jdbcDriver>
-                    <jdbcUrl>jdbc:h2:file:~/test;INIT=RUNSCRIPT FROM 'classpath:test.sql'</jdbcUrl>
+                    <jdbcUrl>jdbc:h2:file:~/test;INIT=RUNSCRIPT FROM './src/main/resources/test.sql'</jdbcUrl>
                     <jdbcUser>sa</jdbcUser>
                     <jdbcPassword/>
                     <packageName>${project.groupId}</packageName>
@@ -78,7 +88,8 @@
                         <version>1.4.187</version>
                     </dependency>
                 </dependencies>
-            </plugin>            <plugin>
+            </plugin>
+            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
